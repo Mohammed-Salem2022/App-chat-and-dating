@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "435232085765",
+    "project_id": "watts-gold-almalky",
+    "storage_bucket": "watts-gold-almalky.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:435232085765:android:362c932293da3fd481896c",
+        "android_client_info": {
+          "package_name": "com.watts.omer.gold.watts_gold_almalakiu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "435232085765-tt5a1q3rlh3vctr9sfsv9uh1tmcu7mp7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD41nb1J43apzMM8tZEn86HwFNnJQhpLyw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "435232085765-tt5a1q3rlh3vctr9sfsv9uh1tmcu7mp7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
