@@ -27,6 +27,7 @@ Map<String,String>ar={
 
   'People':'اصدقاء',
   'Setting':'الاعدادت',
+  'Chat':'دردشة',
 
 
 

@@ -3,6 +3,7 @@ import 'package:watts_gold_almalakiu/utils/theme.dart';
 import 'package:get/get.dart';
 
 import '../../../controller/sign_in_controoler.dart';
+import '../../../routes/routes.dart';
 class DesginButtonSginIn extends StatelessWidget {
    DesginButtonSginIn({Key? key}) : super(key: key);
    final controller=Get.put(SiginInController());
@@ -13,7 +14,10 @@ class DesginButtonSginIn extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20.0,right: 20),
         child: InkWell(
           onTap: ()async{
-               await  controller.signInWithGoogle();
+               await  controller.signInWithGoogle().then((value) {
+             controller.    checksigninBox.write('signGoogle',controller. checkSignUp);
+             Get.offNamed(NamePages.userInformation);
+               });
 
           },
           child: Stack(children: [

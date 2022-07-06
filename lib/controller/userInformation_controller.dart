@@ -20,7 +20,7 @@ import '../model/send_information_user.dart';
 import '../utils/theme.dart';
 
 class UserInformationController extends GetxController{
-  User ?  userid=FirebaseAuth.instance.currentUser;
+  var   userid=FirebaseAuth.instance.currentUser;
   bool    progressinformation=false;
   String  selectedAge='choose your age'.tr;
   String   selectedyourKind='Gender'.tr;
@@ -89,7 +89,7 @@ class UserInformationController extends GetxController{
     int randomNumber = random.nextInt(3);
 
     userRef.doc(userid!.uid).set({
-      'Myid':           userid!.uid,
+      'Myid':          sendInformationUser.myid,
       'name':           sendInformationUser.name,
       'age':            sendInformationUser.age,
       'country':        sendInformationUser.country,

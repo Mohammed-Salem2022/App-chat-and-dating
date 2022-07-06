@@ -33,10 +33,10 @@ class SiginInController extends GetxController{
 
     );
       checkSignUp=true;
-      checksigninBox.write('signGoogle', checkSignUp);
+      //
       progress=false;
       update();
-      Get.offNamed(NamePages.userInformation);
+
     // Once signed in, return the UserCredential
     return await FirebaseAuth.instance.signInWithCredential(credential);
 

@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 import '../view/screen/people_screen.dart';
@@ -10,17 +11,14 @@ class HomeController extends GetxController{
 
   final tabs=[
     PeopleScreen(),
+    Container(),
     SettingScreen()
 
 
 
   ].obs;
 
-   final title =[
-     'People'.tr,
-     'Setting'.tr,
 
-   ].obs;
 
 
 

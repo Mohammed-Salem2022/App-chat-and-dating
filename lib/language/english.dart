@@ -31,6 +31,7 @@ Map<String,String>en={
 
   'People':'People',
   'Setting':'Setting',
+  'Chat':'Chat',
 
 
 

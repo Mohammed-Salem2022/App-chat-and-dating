@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:watts_gold_almalakiu/controller/home_controller.dart';
+import 'package:watts_gold_almalakiu/routes/routes.dart';
 import 'package:watts_gold_almalakiu/utils/theme.dart';
 
 
@@ -16,7 +17,10 @@ class HomeScreen extends StatelessWidget {
         return Scaffold(
          backgroundColor: context.theme.backgroundColor,
 
-            bottomNavigationBar:bottomNavigationBarItem(homeController:controllerhome ,),
+            bottomNavigationBar:bottomNavigationBarItem(
+              homeController:controllerhome ,
+
+            ),
             body:  IndexedStack(
               index: controllerhome.indexScreens.value,
               children: controllerhome.tabs,
@@ -33,9 +37,11 @@ class HomeScreen extends StatelessWidget {
 // هنا مربع الي يظهر في الاسفل
  class  bottomNavigationBarItem extends StatelessWidget{
    HomeController homeController;
+
    bottomNavigationBarItem({
     Key? key,
     required this.homeController,
+
   }) : super(key: key);
 
   @override
@@ -48,8 +54,11 @@ class HomeScreen extends StatelessWidget {
         elevation: 0,
         currentIndex: homeController.indexScreens.value,
         onTap: (index){
-          homeController.indexScreens.value=index;
-
+           if (index==1){
+             Get.toNamed(NamePages.ChatScreen);
+           }else {
+             homeController.indexScreens.value = index;
+           }
         },
         items: const  [
           BottomNavigationBarItem(
@@ -59,11 +68,17 @@ class HomeScreen extends StatelessWidget {
               icon:Icon( Icons.people),
               label: ''
           ),
+          BottomNavigationBarItem(
+
+            icon: Icon( Icons.chat_bubble_outlined),
+            label: '',
+          ),
               BottomNavigationBarItem(
 
             icon: Icon( Icons.settings),
               label: '',
           ),
+
 
         ]
 

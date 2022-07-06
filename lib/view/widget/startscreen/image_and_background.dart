@@ -22,8 +22,8 @@ class ImageAndBackground extends StatelessWidget {
            width: 150,
               height: 150,
              child: const CircleAvatar(
-               backgroundImage: NetworkImage(
-                   'https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80',
+               backgroundImage: AssetImage(
+                   'images/imagepicker.png',
 
                ),
             ),

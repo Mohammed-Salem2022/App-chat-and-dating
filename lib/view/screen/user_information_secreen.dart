@@ -140,10 +140,11 @@ class UserInformation extends StatelessWidget {
                                      country: controllerinformation.selectedcountry,
                                      myid: controllerinformation.userid?.uid,
                                  );
-                                 controllerinformation.pathImage(sendInformationUser);
+                                controllerinformation.pathImage(sendInformationUser);
 
                                 }
-                              } else{
+                              }
+                              else{
                                controllerinformation.defDialog(
                                    onPressed1: (){
                                      controllerinformation.getImagegallery();
