@@ -12,19 +12,3 @@ const Color kColor4=Color(0xff738871);
 const Color kColor5=Color(0xff6D454D);
 
 
-//
-// class themeApp{
-//   static final light= ThemeData(
-//     primaryColor: mainColor,
-//     backgroundColor: Colors.white,
-//     brightness: Brightness.light,
-//   );
-//
-//   static final dark= ThemeData(
-//     primaryColor: Colors.black,
-//     backgroundColor: Colors.black,
-//     brightness: Brightness.dark,
-//   );
-//
-//
-// }

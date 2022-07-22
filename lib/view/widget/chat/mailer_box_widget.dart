@@ -47,7 +47,7 @@ class MailerBoxWidget extends StatelessWidget{
                           color: Colors.black,),
                           decoration:  InputDecoration(
                             hintText: 'Message'.tr,
-                          hintStyle: GoogleFonts.cairo(color: Colors.black,fontWeight: FontWeight.bold),
+                          hintStyle: GoogleFonts.cairo(color: Colors.black,fontWeight: FontWeight.normal),
                           fillColor:Get.isDarkMode? Colors.grey.shade400:Colors.grey.shade400,
                           filled: true,
                            prefixIcon:  Icon(
@@ -70,51 +70,74 @@ class MailerBoxWidget extends StatelessWidget{
           GetBuilder<ChatController>(
               builder: ((controller) {
 
-            return    FutureBuilder<DocumentSnapshot>(
-                future: controllerChat.collectionReference.doc(controllerChat.myid).get(),
-                builder: (context, snapshot) {
-                  return  controllerChat.textbool?Container():
-                  IconButton(
+            return    StreamBuilder<QuerySnapshot>(
+                stream:controllerChat.collectionReferenceChat
+                    .orderBy('time', descending: true).snapshots(),
+                builder: (context, snapshot1) {
+              return FutureBuilder<DocumentSnapshot>(
+                  future: controllerChat.collectionReference.doc(controllerChat.myid).get(),
+                  builder: (context, snapshot) {
+                    return  controllerChat.textbool?Container():
+                    IconButton(
 
-                      splashColor: Get.isDarkMode? pinkClr:mainColor,
-                      onPressed: (){
-                        final sendMessageToChat= SendMessageToChat(
-                          myid:   snapshot.data!['Myid'],
-                          name:   snapshot.data! ['name'],
-                          message:controllerChat.textMessage.value.text,
-                          imageprofile: snapshot.data!['imageProfile'],
-                          randomNumber:snapshot.data!['randomNumber'],
-                        )  ;
+                        splashColor: Get.isDarkMode? pinkClr:mainColor,
+                        onPressed: () {
+                          if (snapshot1.data!.docs.length > 30) {
+                               controllerChat.deleteAlldecomtion();
+                               final sendMessageToChat = SendMessageToChat(
+                                 myid: snapshot.data!['Myid'],
+                                 name: snapshot.data! ['name'],
+                                 message: controllerChat.textMessage.value.text,
+                                 imageprofile: snapshot.data!['imageProfile'],
+                                 randomNumber: snapshot.data!['randomNumber'],
+                               );
 
-                        if (controllerChat.textbool){
+                               if (controllerChat.textbool) {
 
-                        } else{
-                          controllerChat.textMessage.value.clear();
-                          controllerChat.textbool=true;
-                          controllerChat.update();
-                          print('lll');
+                               } else {
+                                 controllerChat.textMessage.value.clear();
+                                 controllerChat.textbool = true;
+                                 controllerChat.sendMessageToChat(
+                                     sendMessageToChat);
+                                 controllerChat.update();
+                               }
+                          } else {
 
+                            final sendMessageToChat = SendMessageToChat(
+                              myid: snapshot.data!['Myid'],
+                              name: snapshot.data! ['name'],
+                              message: controllerChat.textMessage.value.text,
+                              imageprofile: snapshot.data!['imageProfile'],
+                              randomNumber: snapshot.data!['randomNumber'],
+                            );
 
-                        }
+                            if (controllerChat.textbool) {
 
+                            } else {
+                              controllerChat.textMessage.value.clear();
+                              controllerChat.textbool = true;
+                              controllerChat.sendMessageToChat(
+                                  sendMessageToChat);
+                              controllerChat.update();
+                            }
+                       }
 
-                        // controllerChat.sendMessageToChat(sendMessageToChat);
-
-                      },
-
-                      icon:controllerChat.textbool ==false?   const Icon(
-                        Icons.send,
-                        color: Colors.blue,
-                      ):const Visibility(
-                        visible:  true,
-                        child:Icon(
+                        },
+                        icon:controllerChat.textbool ==false?   const Icon(
                           Icons.send,
-                          color: Colors.black,
-                        ) ,
-                      )
-                  );
-                }
-            );
+                          color: Colors.blue,
+                        ):const Visibility(
+                          visible:  true,
+                          child:Icon(
+                            Icons.send,
+                            color: Colors.black,
+                          ) ,
+                        )
+                    );
+                  }
+              );
+            });
+
           }
           )
           )

@@ -97,7 +97,7 @@ class UserInformationController extends GetxController{
       'imageProfile':   url,
       'randomNumber':   randomNumber,
       'time':           FieldValue.serverTimestamp(),
-
+      'Status':         'false'
     }).then((value) => {
 
       progressinformation=false,
