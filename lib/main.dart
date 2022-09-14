@@ -129,7 +129,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   // await  initializeService();
- // LocalNotificationService.initialize();
+ LocalNotificationService.initialize();
   runApp(MyApp());
 
 }

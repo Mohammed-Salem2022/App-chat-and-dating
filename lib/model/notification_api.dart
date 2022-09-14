@@ -27,7 +27,7 @@ class LocalNotificationService {
    Random random =  Random();
    int id = random.nextInt(1000);
     final String? largeIconPath = await downloadAndSaveFile(
-        'https://firebasestorage.googleapis.com/v0/b/watts-gold-almalky.appspot.com/o/profileImage%2Fimage_picker8255982176454099305.jpg?alt=media&token=e284fef0-7803-43ca-8f31-f99edb510f10', 'largeIcon');
+        'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg', 'largeIcon');
     final AndroidNotificationDetails androidPlatformChannelSpecifics =
     AndroidNotificationDetails(
       'mychanel',
