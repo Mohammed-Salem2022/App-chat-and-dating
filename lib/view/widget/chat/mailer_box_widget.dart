@@ -8,15 +8,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:watts_gold_almalakiu/controller/chat_controller.dart';
 
+import '../../../model/notification_api.dart';
 import '../../../model/send_talk_to_chat.dart';
+import '../../../model/sendnotifaction.dart';
 import '../../../utils/theme.dart';
 
 
 class MailerBoxWidget extends StatelessWidget{
-  final controllerChat=Get.put(ChatController());
+  // final controllerChat=Get.put(ChatController());
   String? text;
+  final controllerChat= Get.find<ChatController>();
    MailerBoxWidget({Key? key}) : super(key: key);
 
   @override
@@ -75,20 +79,21 @@ class MailerBoxWidget extends StatelessWidget{
                     .orderBy('time', descending: true).snapshots(),
                 builder: (context, snapshot1) {
               return FutureBuilder<DocumentSnapshot>(
-                  future: controllerChat.collectionReference.doc(controllerChat.myid).get(),
+                  future: controllerChat.collectionReference.doc(controllerChat.email).get(),
                   builder: (context, snapshot) {
                     return  controllerChat.textbool?Container():
                     IconButton(
 
                         splashColor: Get.isDarkMode? pinkClr:mainColor,
                         onPressed: () {
-                          if (snapshot1.data!.docs.length > 30) {
+
+                         if (snapshot1.data!.docs.length > 30) {
                                controllerChat.deleteAlldecomtion();
                                final sendMessageToChat = SendMessageToChat(
-                                 myid: snapshot.data!['Myid'],
+                                 email: snapshot.data!['email'],
                                  name: snapshot.data! ['name'],
                                  message: controllerChat.textMessage.value.text,
-                                 imageprofile: snapshot.data!['imageProfile'],
+                                 imageprofile: snapshot.data!['yourtype'],
                                  randomNumber: snapshot.data!['randomNumber'],
                                );
 
@@ -99,15 +104,18 @@ class MailerBoxWidget extends StatelessWidget{
                                  controllerChat.textbool = true;
                                  controllerChat.sendMessageToChat(
                                      sendMessageToChat);
+
+
                                  controllerChat.update();
+
                                }
                           } else {
 
                             final sendMessageToChat = SendMessageToChat(
-                              myid: snapshot.data!['Myid'],
+                              email: snapshot.data!['email'],
                               name: snapshot.data! ['name'],
                               message: controllerChat.textMessage.value.text,
-                              imageprofile: snapshot.data!['imageProfile'],
+                              imageprofile: snapshot.data!['yourtype'],
                               randomNumber: snapshot.data!['randomNumber'],
                             );
 
@@ -118,6 +126,7 @@ class MailerBoxWidget extends StatelessWidget{
                               controllerChat.textbool = true;
                               controllerChat.sendMessageToChat(
                                   sendMessageToChat);
+
                               controllerChat.update();
                             }
                        }

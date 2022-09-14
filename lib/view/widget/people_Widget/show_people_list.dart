@@ -16,11 +16,10 @@ class ShowPeopleList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final peoplecontrller= Get.put(PeopleController());
+
     return  GetBuilder<PeopleController>(builder: (contoller){
 
       return SafeArea(
-
-
           child: StreamBuilder<QuerySnapshot>(
               stream:peoplecontrller.getdataUser(),
               builder: (context, snapshot){
@@ -49,14 +48,12 @@ class ShowPeopleList extends StatelessWidget {
                     ),
                     itemBuilder: (context,index){
 
-                       if(peoplecontrller.user!.uid !=snapshot.data?.docs[index]['Myid'] ) {
+                       if(peoplecontrller.user!.email !=snapshot.data?.docs[index]['email'] ) {
                        return  gradView(
                          onTap: (){
                            print(snapshot.data?.docs[index]['Myid']);
                          },
                             index: index,
-                            imageprofile: snapshot.data
-                                ?.docs[index]['imageProfile'],
                             name: snapshot.data?.docs[index]['name'],
                             age: snapshot.data?.docs[index]['age'],
                             country: snapshot.data?.docs[index]['country'],
@@ -89,7 +86,10 @@ class ShowPeopleList extends StatelessWidget {
 
 
       );
-    });
+
+    }
+
+    );
 
   }
 
@@ -97,7 +97,7 @@ class ShowPeopleList extends StatelessWidget {
 }
 class gradView extends StatelessWidget {
   int index;
-  String imageprofile;
+
   String name;
   String age;
    String country ;
@@ -105,7 +105,7 @@ class gradView extends StatelessWidget {
   Function() onTap;
   gradView({Key? key,
     required this.index,
-    required this.imageprofile,
+
     required this.name,
     required this.age,
     required this.country,
@@ -129,7 +129,11 @@ class gradView extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(15),
 
-              child:    Image.network(imageprofile,
+              child:Gender=='woman'||Gender=='بنت'?    Image.asset('images/woman.png',
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,
+              ):Image.asset('images/man.png',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,

@@ -5,14 +5,17 @@ import 'package:get/get.dart';
 import '../../../controller/chat_controller.dart';
 
 class FriendOnline extends StatelessWidget {
-  final controllerChat=Get.put(ChatController());
+  // final controllerChat=Get.put(ChatController());
+
+  final controllerChat= Get.find<ChatController>();
   @override
   Widget build(BuildContext context) {
+
     return  Container(
 
         padding: const EdgeInsets.only(top: 10,left: 10,right: 10),
         width: double.infinity,
-        height: Get.height/9.3,
+        height: Get.height*0.11,
         color: Colors.black45,
         child:   StreamBuilder<QuerySnapshot>(
             stream: controllerChat.collectionReference.where('Status', isEqualTo: 'online').snapshots(),
@@ -45,7 +48,7 @@ class FriendOnline extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return controllerChat.myid==snapshot.data?.docs[index]['Myid']?Container():
                       Column(
-                       crossAxisAlignment: CrossAxisAlignment.start,
+                       crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           CircleAvatar(
                             radius: 19,
@@ -54,14 +57,16 @@ class FriendOnline extends StatelessWidget {
                             ),
                           ),
                               const SizedBox(
-                                width: 50,
+                                width: 70,
                               ),
-                           Text(
-                             snapshot.data?.docs[index]['name'],
-                             style: const TextStyle(
-                                 color: Colors.white
-                             ),
-                           )
+                           Center(
+                               child:Text(
+                                 snapshot.data?.docs[index]['name'],
+                                 style: const TextStyle(
+                                     color: Colors.white
+                                 ),
+                               )
+                      ),
                         ],
                       );
                     },

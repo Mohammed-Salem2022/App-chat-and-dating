@@ -10,20 +10,30 @@ import 'package:watts_gold_almalakiu/view/widget/chat/mailer_box_widget.dart';
 
 
 import '../../controller/chat_controller.dart';
+import '../../controller/home_controller.dart';
 import '../widget/chat/appbar_chat_widget.dart';
 import '../widget/chat/friends_online.dart';
 import '../widget/chat/messageIn_chat.dart';
+
 class ChatScreen extends StatelessWidget{
    ChatScreen({Key? key}) : super(key: key);
-   final controllerChat=Get.put(ChatController());
-   @override
+
+   // final controllerChat1=Get.lazyPut(()=> ChatController(),fenix: false);
+   final controllerChat1= Get.find<ChatController>();
    //  debugPrint("Message");
 
    @override
+
   Widget build(BuildContext context) {
     // TODO: implement build
 
-    return   Scaffold(
+    return   WillPopScope(
+        onWillPop: ()async{
+
+               // controllerChat1.update();
+          return true;
+        },
+        child:  Scaffold(
 
             backgroundColor: context.theme.backgroundColor,
             appBar:AppbarChatWidget(),
@@ -31,10 +41,8 @@ class ChatScreen extends StatelessWidget{
                 decoration:  const BoxDecoration(
 
                   image: DecorationImage(
-                      image: NetworkImage(
-                          "https://img.freepik.com/free-photo/black-painted-wall-textured-background_"
-                              "53876-110728.jpg?size=626&ext"
-                              "=jpg&uid=R74153960&ga=GA1.2.500750962.1629025686"
+                      image: AssetImage(
+                          "images/background1.jpg"
                       ),
                       fit: BoxFit.cover,
                       colorFilter: ColorFilter.mode(Colors.white, BlendMode.dstATop)
@@ -59,6 +67,7 @@ class ChatScreen extends StatelessWidget{
                       ],
                     ),
                     FriendOnline(),
+
                   ],
                 )
             )
@@ -66,8 +75,10 @@ class ChatScreen extends StatelessWidget{
 
 
 
-        );
+        ),
 
+
+    );
 
 
 

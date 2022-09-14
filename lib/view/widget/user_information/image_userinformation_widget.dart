@@ -16,7 +16,7 @@ class ImageUserInformationWideget extends StatelessWidget {
 
          onTap: (){
 
-             controller.checkpermissionCamera_Storage();
+             // controller.checkpermissionCamera_Storage();
 
          },
          child:controller.pickedImagefile==null?

@@ -11,9 +11,12 @@ import 'package:watts_gold_almalakiu/utils/theme.dart';
 
 class HomeScreen extends StatelessWidget {
    final controllerhome = Get.put(HomeController());
+
   @override
   Widget build(BuildContext context) {
+
       return  Obx((){
+
         return Scaffold(
          backgroundColor: context.theme.backgroundColor,
 

@@ -3,6 +3,7 @@ import 'package:watts_gold_almalakiu/view/screen/chat_screen.dart';
 import 'package:watts_gold_almalakiu/view/screen/home_screen.dart';
 import 'package:watts_gold_almalakiu/view/screen/start_screen.dart';
 
+import '../controller/chat_controller.dart';
 import '../view/screen/user_information_secreen.dart';
 
 class AppRoutes {
@@ -10,7 +11,7 @@ class AppRoutes {
     GetPage(name: NamePages.StartScreen, page: () => StartScreen()),
     GetPage(name: NamePages.userInformation, page: () => UserInformation()),
     GetPage(name: NamePages.HomeScreen, page: () => HomeScreen()),
-    GetPage(name: NamePages.ChatScreen, page: () => ChatScreen()),
+    GetPage(name: NamePages.ChatScreen, page: () => ChatScreen() ,binding: ChatControllerBindings()),
   ];
 }
 

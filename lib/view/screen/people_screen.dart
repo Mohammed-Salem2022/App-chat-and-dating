@@ -2,16 +2,20 @@
 
 
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controller/people_controller.dart';
+import '../../model/notification_api.dart';
 import '../../utils/theme.dart';
 import '../widget/people_Widget/show_people_list.dart';
 
 
 
 class PeopleScreen extends StatelessWidget {
-  const PeopleScreen({Key? key}) : super(key: key);
+   PeopleScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,5 +34,6 @@ class PeopleScreen extends StatelessWidget {
 
 
     );
+
   }
 }

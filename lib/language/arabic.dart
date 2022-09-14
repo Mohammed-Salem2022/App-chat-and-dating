@@ -11,6 +11,7 @@ Map<String,String>ar={
   'You should choose Image':'يجب عليك اختيار الصورة',
   'choose image':'اختار الصوره',
   'No':'لا',
+  'Yes':'نعم',
   //
   'Your name must be more than 3 letters':'لابد ان يكون اسمك اكثر من 3 حروف',
   'Enter your name':'ادخل اسمك',
@@ -31,7 +32,20 @@ Map<String,String>ar={
   'Message':'رسالة',
 
 
+  // Name editing page setting
+  'Name editing':'تعديل الاسم',
+  //Name editing page setting defaultDialogEditName
+  'Edite your name':'عدّل اسمك',
+  //dark mode page setting
+  'DarkMode':'الوضع الداكن',
+  //Language page setting
+  'Language':'اللغة',
 
-
+  //Delete my account page setting popupmenu
+  'Delete my account':'حذف حسابي',
+  'Do you want delete your account':'هل تريد حذف حسابك',
+  //logo out page setting
+  'Sgin Out':'خروج',
+  'Do you want Exit':'هل تريد الخروج',
 
 };

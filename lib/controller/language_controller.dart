@@ -10,7 +10,7 @@ class LanguageController extends GetxController {
 
   GetStorage storage = GetStorage();
   String langLocal = ara;
-
+  bool darkSwich= false;
   Future<String> get readLanguage async {
     return await storage.read('language');
   }

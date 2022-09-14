@@ -128,7 +128,7 @@ class UserInformation extends StatelessWidget {
                          :ButtonInformation(
                           onPressed: (){
 
-                              if(controllerinformation.pickedImagefile != null){
+
                                 if(keyform.currentState!.validate()) {
 
 
@@ -140,26 +140,11 @@ class UserInformation extends StatelessWidget {
                                      country: controllerinformation.selectedcountry,
                                      myid: controllerinformation.userid?.uid,
                                  );
-                                controllerinformation.pathImage(sendInformationUser);
+                                controllerinformation.sendDtatUser(sendInformationUser);
 
                                 }
-                              }
-                              else{
-                               controllerinformation.defDialog(
-                                   onPressed1: (){
-                                     controllerinformation.getImagegallery();
-                                      Get.back();
-                                   },
-                                   onPressed2: (){
-                                     Get.back();
-                                     },
-                                   title: 'Choose Image'.tr,
-                                   middleText: 'You should choose Image'.tr,
-                                   text1: "choose image".tr,
-                                   text2: 'No'.tr);
 
 
-                              }
 
 
 

@@ -11,6 +11,7 @@ Map<String,String>en={
   'You should choose Image':'You should choose Image',
   'choose image':'choose image',
   'No':'No',
+  'Yes':'Yes',
 
 
 
@@ -33,6 +34,27 @@ Map<String,String>en={
   'Setting':'Setting',
   'Chat':'Chat',
   'Message':'Message',
+
+
+
+  // Name editing page setting popupmenu
+  'Name editing':'Name editing',
+  //Name editing page setting defaultDialogEditName
+  'Edite your name':'Edite your name',
+  //dark mode page setting
+  'DarkMode':'dark mode',
+  //Language page setting
+  'Language':'Language',
+
+  //Delete my account page setting popupmenu
+  'Delete my account':'Delete my account',
+  'Do you want delete your account':'Do you want delete your account',
+  //logo out page setting defaultDialog
+  'Sgin Out':'Sgin Out',
+  'Do you want Exit':'Do you want Exit',
+
+
+
 
 
 

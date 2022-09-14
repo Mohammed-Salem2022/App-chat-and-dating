@@ -5,7 +5,7 @@
 
 class SendMessageToChat {
 
-   String? myid ;
+   String? email ;
    String? name ;
    String? message ;
    int? randomNumber ;
@@ -13,7 +13,7 @@ class SendMessageToChat {
 
    SendMessageToChat(
     {
-      required   this.myid,
+      required   this.email,
       required   this.name,
       required   this.message,
       required   this.randomNumber,
